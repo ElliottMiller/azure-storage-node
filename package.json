@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "browserify-fs": "^1.0.0",
+    "copyfiles": "^0.2.1",
     "coveralls": "^2.11.4",
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.11.0",
@@ -62,6 +63,9 @@
     "check": "jshint lib",
     "test": "jshint lib && mocha --no-timeouts --recursive test",
     "cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec -u bdd --no-timeouts --recursive test",
-    "coveralls": "npm run cover && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js"
+    "coveralls": "npm run cover && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js",
+    "postinstall": "npm run copyrequest && npm run copyrequestlib",
+    "copyrequest": "rimraf node_modules/request/request.js && copyfiles -u 2 toCopy/request/request.js node_modules/request/",
+    "copyrequestlib": "rimraf node_modules/request/lib/redirect.js && copyfiles -u 3 toCopy/request/lib/redirect.js node_modules/request/lib/"
   }
 }
