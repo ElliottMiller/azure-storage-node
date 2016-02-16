@@ -46,6 +46,7 @@
     "mocha-lcov-reporter": "^1.0.0",
     "nock": "0.16",
     "nsp": "^1.0.1",
+    "rimraf": "^2.5.2",
     "should": "1.2.x"
   },
   "browser": {
